@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME by Rentvine: Built in. Not bolted on.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --vine:   #00A54F;
+      --dew:    #CAF5DF;
+      --blue:   #167FE1;
+      --sky:    #BCE5FF;
+      --night:  #111111;
+      --smoke:  #494949;
+      --stone:  #7E7E7E;
+      --grey:   #B1B1B1;
+      --paper:  #F1F1F1;
+      --white:  #FFFFFF;
+      --leaf:   #67C9A4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', Arial, sans-serif;
+      background: var(--white);
+      color: var(--night);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--night);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+    .nav-logo span { color: var(--vine); }
+
+    .nav-cta {
+      background: var(--vine);
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--night);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 32px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle wave texture via SVG background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0,165,79,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(22,127,225,0.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--vine);
+      background: rgba(0,165,79,0.12);
+      border: 1px solid rgba(0,165,79,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-wordmark {
+      font-size: clamp(80px, 14vw, 140px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 0.9;
+      letter-spacing: -4px;
+      margin-bottom: 8px;
+    }
+    .hero-wordmark span { color: var(--vine); }
+
+    .hero-acronym {
+      font-size: clamp(12px, 1.4vw, 15px);
+      font-weight: 500;
+      color: var(--stone);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      font-weight: 400;
+      color: var(--stone);
+      line-height: 1.65;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--vine);
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-1px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--stone);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--vine), transparent);
+    }
+
+    /* ── Stat Strip ── */
+    .stat-strip {
+      background: var(--vine);
+      padding: 28px 48px;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 48px;
+      border-right: 1px solid rgba(255,255,255,0.25);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* ── Section base ── */
+    section { padding: 96px 48px; }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--vine);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: 17px;
+      color: var(--smoke);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* ── Intro Section ── */
+    .intro {
+      background: var(--white);
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .intro-quote {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      color: var(--night);
+      line-height: 1.4;
+      letter-spacing: -0.5px;
+      border-left: 4px solid var(--vine);
+      padding-left: 24px;
+    }
+    .intro-quote em { color: var(--vine); font-style: normal; }
+
+    /* ── Pillars ── */
+    .pillars-section {
+      background: var(--night);
+      padding: 96px 48px;
+    }
+
+    .pillars-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+
+    .pillars-header .section-title { color: var(--white); }
+    .pillars-header .section-body { color: var(--stone); margin: 0 auto; }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pillar-card {
+      border-radius: 16px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .pillar-card:hover { transform: translateY(-4px); }
+
+    .pillar-card-01 { background: rgba(0,165,79,0.12); border: 1px solid rgba(0,165,79,0.3); }
+    .pillar-card-02 { background: rgba(22,127,225,0.10); border: 1px solid rgba(22,127,225,0.25); }
+    .pillar-card-03 { background: rgba(202,245,223,0.08); border: 1px solid rgba(202,245,223,0.2); }
+    .pillar-card-04 { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); }
+
+    .pillar-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .pillar-card-01 .pillar-number { color: var(--vine); }
+    .pillar-card-02 .pillar-number { color: var(--blue); }
+    .pillar-card-03 .pillar-number { color: var(--leaf); }
+    .pillar-card-04 .pillar-number { color: var(--grey); }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pillar-card-01 .pillar-icon { background: rgba(0,165,79,0.2); }
+    .pillar-card-02 .pillar-icon { background: rgba(22,127,225,0.2); }
+    .pillar-card-03 .pillar-icon { background: rgba(202,245,223,0.15); }
+    .pillar-card-04 .pillar-icon { background: rgba(255,255,255,0.08); }
+
+    .pillar-icon svg { width: 24px; height: 24px; }
+
+    .pillar-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .pillar-tagline {
+      font-size: 13px;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .pillar-card-01 .pillar-tagline { color: var(--vine); }
+    .pillar-card-02 .pillar-tagline { color: var(--blue); }
+    .pillar-card-03 .pillar-tagline { color: var(--leaf); }
+    .pillar-card-04 .pillar-tagline { color: var(--grey); }
+
+    .pillar-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .pillar-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .pillar-bullets li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pillar-bullets li::before {
+      content: '✓';
+      font-size: 11px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    .pillar-card-01 .pillar-bullets li::before { color: var(--vine); }
+    .pillar-card-02 .pillar-bullets li::before { color: var(--blue); }
+    .pillar-card-03 .pillar-bullets li::before { color: var(--leaf); }
+    .pillar-card-04 .pillar-bullets li::before { color: var(--grey); }
+
+    /* ── Differentiator ── */
+    .diff-section {
+      background: var(--paper);
+      padding: 96px 48px;
+    }
+
+    .diff-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .diff-comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .diff-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .diff-cell {
+      padding: 16px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .diff-cell-before {
+      background: #FFF5F5;
+      border: 1px solid #FFCACA;
+      color: var(--smoke);
+    }
+    .diff-cell-before::before {
+      content: '✗  ';
+      color: #F84848;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .diff-cell-after {
+      background: #F0FBF5;
+      border: 1px solid #B7EDD2;
+      color: var(--smoke);
+    }
+    .diff-cell-after::before {
+      content: '✓  ';
+      color: var(--vine);
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .diff-col-labels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .diff-col-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0 4px;
+    }
+    .diff-col-label.before { color: #F84848; }
+    .diff-col-label.after  { color: var(--vine); }
+
+    /* ── PM Section ── */
+    .pm-section {
+      background: var(--white);
+      padding: 96px 48px;
+    }
+
+    .pm-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .pm-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .pm-card {
+      background: var(--white);
+      border: 1px solid #E5E5E5;
+      border-radius: 14px;
+      padding: 36px 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .pm-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .pm-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--dew);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .pm-card-icon svg { width: 22px; height: 22px; }
+
+    .pm-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--night);
+      margin-bottom: 10px;
+    }
+
+    .pm-card-body {
+      font-size: 14px;
+      color: var(--smoke);
+      line-height: 1.65;
+    }
+
+    /* ── Packages ── */
+    .packages-section {
+      background: var(--white);
+      padding: 96px 48px;
+    }
+
+    .packages-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .packages-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .package-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #E5E5E5;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .package-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+
+    .package-card.featured {
+      border-color: var(--vine);
+      box-shadow: 0 0 0 2px var(--vine);
+    }
+
+    .package-header {
+      padding: 32px 32px 24px;
+    }
+
+    .package-card:not(.featured) .package-header {
+      background: var(--paper);
+    }
+
+    .package-card.featured .package-header {
+      background: var(--night);
+    }
+
+    .package-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .package-card:not(.featured) .package-badge {
+      background: rgba(0,165,79,0.12);
+      color: var(--vine);
+    }
+
+    .package-card.featured .package-badge {
+      background: var(--vine);
+      color: var(--white);
+    }
+
+    .package-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .package-card:not(.featured) .package-name { color: var(--night); }
+    .package-card.featured .package-name { color: var(--white); }
+
+    .package-desc {
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .package-card:not(.featured) .package-desc { color: var(--smoke); }
+    .package-card.featured .package-desc { color: rgba(255,255,255,0.6); }
+
+    .package-features {
+      padding: 28px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: var(--white);
+    }
+
+    .package-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--night);
+      font-weight: 500;
+    }
+
+    .package-feature-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .package-card:not(.featured) .package-feature-check {
+      background: var(--dew);
+      color: var(--vine);
+    }
+
+    .package-card.featured .package-feature-check {
+      background: var(--vine);
+      color: var(--white);
+    }
+
+    .package-feature-new {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: var(--sky);
+      color: var(--blue);
+      padding: 2px 8px;
+      border-radius: 100px;
+      margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+      .packages-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Quote ── */
+    .quote-section {
+      background: linear-gradient(160deg, var(--vine) 0%, var(--blue) 100%);
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .quote-text {
+      font-size: clamp(22px, 3.5vw, 36px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.35;
+      max-width: 700px;
+      margin: 0 auto 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .quote-attribution {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      background: var(--night);
+      padding: 96px 48px;
+      text-align: center;
+    }
+
+    .cta-section .section-title { color: var(--white); margin-bottom: 16px; }
+    .cta-section .section-body  { color: var(--stone); margin: 0 auto 48px; text-align: center; }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #0A0A0A;
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid #1E1E1E;
+    }
+
+    .footer-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--vine); }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #3A3A3A;
+    }
+
+    /* ── HOME Scroll Reveal ── */
+    .home-reveal-section {
+      position: relative;
+      height: 450vh;
+      background: var(--night);
+    }
+
+    .home-reveal-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      overflow: hidden;
+      padding: 0 32px;
+    }
+
+    .home-reveal-sticky::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,165,79,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      transition: background 0.8s;
+    }
+
+    .home-reveal-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    .home-reveal-letters {
+      display: flex;
+      align-items: center;
+      gap: clamp(8px, 2.5vw, 32px);
+    }
+
+    .hrl-letter {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(72px, 18vw, 210px);
+      height: clamp(88px, 22vw, 256px);
+    }
+
+    .hrl-char {
+      font-size: clamp(72px, 18vw, 210px);
+      font-weight: 800;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(255,255,255,0.1);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                  -webkit-text-stroke-color 0.8s,
+                  text-shadow 0.8s;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .hrl-word {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(7px, 1.1vw, 11px);
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      text-align: center;
+      color: white;
+      opacity: 0;
+      transform: scale(0.55) translateY(6px);
+      transition: opacity 0.45s ease,
+                  transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-width: 78%;
+      line-height: 1.55;
+      pointer-events: none;
+    }
+
+    /* Per-letter colors when active */
+    .hrl-letter[data-index="0"].hrl-active .hrl-char {
+      color: var(--vine);
+      -webkit-text-stroke: 0px;
+      text-shadow: 0 0 60px rgba(0,165,79,0.35);
+    }
+    .hrl-letter[data-index="1"].hrl-active .hrl-char {
+      color: var(--blue);
+      -webkit-text-stroke: 0px;
+      text-shadow: 0 0 60px rgba(22,127,225,0.35);
+    }
+    .hrl-letter[data-index="2"].hrl-active .hrl-char {
+      color: var(--leaf);
+      -webkit-text-stroke: 0px;
+      text-shadow: 0 0 60px rgba(103,201,164,0.35);
+    }
+    .hrl-letter[data-index="3"].hrl-active .hrl-char {
+      color: #9B72FF;
+      -webkit-text-stroke: 0px;
+      text-shadow: 0 0 60px rgba(155,114,255,0.35);
+    }
+
+    .hrl-letter.hrl-active .hrl-word {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      transition-delay: 0.22s;
+    }
+
+    .home-reveal-desc {
+      font-size: clamp(14px, 1.7vw, 17px);
+      font-weight: 500;
+      color: var(--stone);
+      text-align: center;
+      max-width: 460px;
+      min-height: 52px;
+      transition: opacity 0.3s ease;
+      line-height: 1.6;
+    }
+
+    .home-reveal-progress {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .home-reveal-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      transition: background 0.4s, transform 0.4s, width 0.4s;
+    }
+
+    .home-reveal-dot.dot-0.dot-active { background: var(--vine); transform: scale(1.5); }
+    .home-reveal-dot.dot-1.dot-active { background: var(--blue); transform: scale(1.5); }
+    .home-reveal-dot.dot-2.dot-active { background: var(--leaf); transform: scale(1.5); }
+    .home-reveal-dot.dot-3.dot-active { background: #9B72FF; transform: scale(1.5); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .pm-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      section, .intro, .diff-inner, .pm-inner { padding: 64px 24px; }
+      .pillars-section, .diff-section, .pm-section, .quote-section, .cta-section, footer { padding-left: 24px; padding-right: 24px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .intro { grid-template-columns: 1fr; gap: 40px; }
+      .diff-inner { grid-template-columns: 1fr; gap: 48px; }
+      .pm-cards { grid-template-columns: 1fr; }
+      .stat-strip { padding: 24px 24px; gap: 24px; }
+      .stat-item { padding: 0 24px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- ── HOME Scroll Reveal ── -->
+  <section class="home-reveal-section" id="home-meaning">
+    <div class="home-reveal-sticky">
+      <div class="home-reveal-eyebrow">what HOME stands for</div>
+      <div class="home-reveal-letters">
+        <div class="hrl-letter" data-index="0">
+          <span class="hrl-char">H</span>
+          <span class="hrl-word">Hospitality</span>
+        </div>
+        <div class="hrl-letter" data-index="1">
+          <span class="hrl-char">O</span>
+          <span class="hrl-word">Ongoing<br>Care</span>
+        </div>
+        <div class="hrl-letter" data-index="2">
+          <span class="hrl-char">M</span>
+          <span class="hrl-word">Member<br>Benefits</span>
+        </div>
+        <div class="hrl-letter" data-index="3">
+          <span class="hrl-char">E</span>
+          <span class="hrl-word">Experience</span>
+        </div>
+      </div>
+      <p class="home-reveal-desc" id="home-reveal-desc">Scroll to discover what makes HOME different.</p>
+      <div class="home-reveal-progress">
+        <div class="home-reveal-dot dot-0" data-dot="0"></div>
+        <div class="home-reveal-dot dot-1" data-dot="1"></div>
+        <div class="home-reveal-dot dot-2" data-dot="2"></div>
+        <div class="home-reveal-dot dot-3" data-dot="3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Make your residents feel at</div>
+      <div class="hero-wordmark">H<span style="color: var(--white);">O</span>ME</div>
+      <div class="hero-acronym">Hospitality &nbsp;·&nbsp; Ongoing Care &nbsp;·&nbsp; Member Benefits &nbsp;·&nbsp; Experience</div>
+      <p class="hero-tagline">with our Resident Experience Package</p>
+      <p class="hero-sub">HOME is Rentvine's native resident experience package. Built directly into your platform no third-party vendors, and no extra logins.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn-primary">schedule a demo</a>
+        <a href="#pillars" class="btn-secondary">see how it works</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- ── Stat Strip ── -->
+  <div class="stat-strip">
+    <div class="stat-item" style="border-right: none;">
+      <div class="stat-number">Day 1</div>
+      <div class="stat-label">residents feel at home from move-in.</div>
+    </div>
+  </div>
+
+  <!-- ── Intro ── -->
+  <div class="intro">
+    <div>
+      <div class="section-eyebrow">what is HOME</div>
+      <h2 class="section-title">Built in.<br>Not bolted on.</h2>
+      <p class="section-body">Other resident benefit packages are third-party add-ons: separate logins, disconnected data, and another vendor to manage. HOME is built directly into Rentvine. That means every touchpoint flows through one platform. No gaps. No middlemen. No surprises.</p>
+    </div>
+    <div>
+      <p class="intro-quote">"Your software should already know what to do. <em>HOME does.</em>"</p>
+    </div>
+  </div>
+
+  <!-- ── Pillars ── -->
+  <section class="pillars-section" id="pillars">
+    <div class="pillars-header">
+      <div class="section-eyebrow">the four pillars</div>
+      <h2 class="section-title" style="color: var(--white);">Everything a resident needs.<br>Already in Rentvine.</h2>
+      <p class="section-body" style="color: var(--stone); margin: 0 auto;">HOME isn't a checklist. It's a commitment to every resident, at every stage of their journey.</p>
+    </div>
+
+    <div class="pillars-grid">
+
+      <!-- Pillar 01Hospitality -->
+      <div class="pillar-card pillar-card-01">
+        <div class="pillar-number">Pillar 01</div>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+            <path d="M9 21V12h6v9"/>
+          </svg>
+        </div>
+        <div class="pillar-name">Hospitality</div>
+        <div class="pillar-tagline">"You shouldn't have to figure it out alone."</div>
+        <p class="pillar-desc">A warm, guided move-in experience from the moment a lease is signed. Residents know exactly what to do and what to expect, without calling anyone.</p>
+        <ul class="pillar-bullets">
+          <li>Guided move-in checklist, day one</li>
+          <li>Welcome message from their property manager</li>
+          <li>Lease, documents, and contacts, all in one place</li>
+          <li>Move-in photo documentation</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 02Ongoing Care -->
+      <div class="pillar-card pillar-card-02">
+        <div class="pillar-number">Pillar 02</div>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#167FE1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </div>
+        <div class="pillar-name">Ongoing Care</div>
+        <div class="pillar-tagline">"We don't disappear after move-in day."</div>
+        <p class="pillar-desc">Real support that residents can feel from the first work order to the last check-in. No calls. No chasing. Just fixed.</p>
+        <ul class="pillar-bullets">
+          <li>Work order submission with photos or video</li>
+          <li>Real-time status updates</li>
+          <li>Proactive check-ins from the property manager</li>
+          <li>Consistent communication throughout the lease</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 03Member Benefits -->
+      <div class="pillar-card pillar-card-03">
+        <div class="pillar-number">Pillar 03</div>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#67C9A4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </div>
+        <div class="pillar-name">Member Benefits</div>
+        <div class="pillar-tagline">"You're not just a tenant. You're a member."</div>
+        <p class="pillar-desc">Perks, resources, and services that make a rental feel like it's working for the resident, not against them. Already here because they're part of HOME.</p>
+        <ul class="pillar-bullets">
+          <li>Renter's insurance, pre-filled and ready</li>
+          <li>Utility concierge and move-in discounts</li>
+          <li>Local resources and community perks</li>
+          <li>Resident rewards program</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 04Experience -->
+      <div class="pillar-card pillar-card-04">
+        <div class="pillar-number">Pillar 04</div>
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B1B1B1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="pillar-name">Experience</div>
+        <div class="pillar-tagline">"It all adds up to something that feels like home."</div>
+        <p class="pillar-desc">Hospitality, care, and benefits don't mean anything without the feeling they create. Experience is what residents remember and why they renew.</p>
+        <ul class="pillar-bullets">
+          <li>A consistent experience from lease signing to move-out</li>
+          <li>Residents who feel seen, supported, and valued</li>
+          <li>Higher renewal rates, fewer complaints</li>
+          <li>A package PMs can pitch with confidence</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Quote ── -->
+  <!-- ── Packages ── -->
+  <section class="packages-section" id="packages">
+    <div class="packages-inner">
+      <div class="packages-header">
+        <div class="section-eyebrow">choose your package</div>
+        <h2 class="section-title">Everything residents need.<br>Two ways to get there.</h2>
+        <p class="section-body" style="margin: 0 auto; text-align: center;">Both packages are built natively into Rentvine, no third-party vendors, no extra logins.</p>
+      </div>
+
+      <div class="packages-grid">
+
+        <!-- Package 1HOME -->
+        <div class="package-card">
+          <div class="package-header">
+            <div class="package-badge">HOME</div>
+            <div class="package-name">HOME</div>
+            <p class="package-desc">The essentials for a resident experience your tenants will notice from day one.</p>
+          </div>
+          <div class="package-features">
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Credit Reporting
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Utility Connection
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Resident Rewards
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              ID Theft Protection
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Pest Control
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Filters
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2HOME+ -->
+        <div class="package-card featured">
+          <div class="package-header">
+            <div class="package-badge">Most Complete</div>
+            <div class="package-name">HOME+</div>
+            <p class="package-desc">Everything in HOME, plus Group Internet, the full resident experience package.</p>
+          </div>
+          <div class="package-features">
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Credit Reporting
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Utility Connection
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Resident Rewards
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              ID Theft Protection
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Pest Control
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Group Internet
+              <span class="package-feature-new">+ add-on</span>
+            </div>
+            <div class="package-feature">
+              <div class="package-feature-check">✓</div>
+              Filters
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="quote-section">
+    <p class="quote-text">"No third-party vendors. No extra logins. No patchwork."</p>
+    <p class="quote-attribution">One platform. Your residents feel the difference.</p>
+  </div>
+
+  <!-- ── Differentiator ── -->
+  <section class="diff-section">
+    <div class="diff-inner">
+      <div>
+        <div class="section-eyebrow">why HOME is different</div>
+        <h2 class="section-title">No third parties.<br>No extra logins.<br>No patchwork.</h2>
+        <p class="section-body">HOME works because Rentvine already knows your residents: their lease, their maintenance history, their preferences. That's something a bolted-on package can never do.</p>
+      </div>
+      <div class="diff-comparison">
+        <div class="diff-col-labels">
+          <span class="diff-col-label before">Without HOME</span>
+          <span class="diff-col-label after">With HOME</span>
+        </div>
+        <div class="diff-row">
+          <div class="diff-cell diff-cell-before">PDF welcome packet and a phone number</div>
+          <div class="diff-cell diff-cell-after">Guided digital move-in from day one</div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-cell diff-cell-before">Work orders go to voicemail or a separate portal</div>
+          <div class="diff-cell diff-cell-after">Submit instantly, track in real time</div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-cell diff-cell-before">Third-party benefit packages, another login, another vendor</div>
+          <div class="diff-cell diff-cell-after">Native to Rentvine, one platform, zero friction</div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-cell diff-cell-before">Resident experience depends on the PM's bandwidth</div>
+          <div class="diff-cell diff-cell-after">Consistent experience, regardless of team size</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── For Property Managers ── -->
+  <section class="pm-section">
+    <div class="pm-inner">
+      <div class="section-eyebrow">for property managers</div>
+      <h2 class="section-title">A package you're proud<br>to put your name on.</h2>
+      <p class="section-body">HOME isn't just better for residents. It's a differentiator you can pitch to prospective owner-clients and a tool that makes your team's day easier.</p>
+      <div class="pm-cards">
+        <div class="pm-card">
+          <div class="pm-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+            </svg>
+          </div>
+          <div class="pm-card-title">Fewer inbound calls</div>
+          <p class="pm-card-body">Residents have answers before they need to ask. Move-in checklists, real-time work order tracking, and a single portal means your team fields fewer interruptions.</p>
+        </div>
+        <div class="pm-card">
+          <div class="pm-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <div class="pm-card-title">A pitch-worthy differentiator</div>
+          <p class="pm-card-body">HOME is something tangible to offer prospective owner-clients. It signals professionalism, resident-first values, and a platform built for the modern PMC.</p>
+        </div>
+        <div class="pm-card">
+          <div class="pm-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <div class="pm-card-title">Higher retention rates</div>
+          <p class="pm-card-body">Happy residents renew. HOME drives the kind of experience that turns a good rental into a place residents want to stay and tell people about.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section" id="cta">
+    <div class="section-eyebrow" style="color: var(--vine); text-align: center;">give your residents HOME</div>
+    <h2 class="section-title">Ready to make your residents<br>feel at home?</h2>
+    <p class="section-body">HOME is built into Rentvine. No integration work, no new vendor relationships, just a better experience for every resident you manage, starting on day one.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-primary">schedule a demo</a>
+      <a href="#" class="btn-secondary">learn more</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-logo"><span>home</span> by Rentvine</div>
+    <div class="footer-links">
+      <a href="#">rentvine.com</a>
+      <a href="#">privacy policy</a>
+      <a href="#">contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Rentvine. All rights reserved.</div>
+  </footer>
+
+
+  <script>
+    (function () {
+      var section = document.getElementById('home-meaning');
+      var letters = document.querySelectorAll('.hrl-letter');
+      var dots    = document.querySelectorAll('.home-reveal-dot');
+      var desc    = document.getElementById('home-reveal-desc');
+
+      var descriptions = [
+        'A warm, guided experience from the moment a lease is signed.',
+        'Real support that residents can feel from move-in to move-out.',
+        'Perks and resources that make a rental work for the resident.',
+        'The feeling that makes residents renew and tell their friends about you.'
+      ];
+
+      var currentActive = -1;
+
+      function tick() {
+        if (!section) return;
+
+        var sectionTop    = section.getBoundingClientRect().top + window.scrollY;
+        var sectionHeight = section.offsetHeight - window.innerHeight;
+        var scrolled      = window.scrollY - sectionTop;
+        var progress      = Math.max(0, Math.min(1, scrolled / sectionHeight));
+
+        // Activate letters & dots progressively (each at 0%, 25%, 50%, 75%)
+        letters.forEach(function (letter, i) {
+          if (progress > i * 0.25) {
+            letter.classList.add('hrl-active');
+          } else {
+            letter.classList.remove('hrl-active');
+          }
+        });
+
+        dots.forEach(function (dot, i) {
+          if (progress > i * 0.25) {
+            dot.classList.add('dot-active');
+          } else {
+            dot.classList.remove('dot-active');
+          }
+        });
+
+        // Update description text when active letter changes
+        var activeIndex = Math.min(Math.floor(progress * 4), 3);
+        if (progress > 0 && activeIndex !== currentActive) {
+          currentActive = activeIndex;
+          desc.style.opacity = '0';
+          setTimeout(function () {
+            desc.textContent = descriptions[activeIndex];
+            desc.style.opacity = '1';
+          }, 220);
+        } else if (progress <= 0 && currentActive !== -1) {
+          currentActive = -1;
+          desc.style.opacity = '0';
+          setTimeout(function () {
+            desc.textContent = 'Scroll to discover what makes HOME different.';
+            desc.style.opacity = '1';
+          }, 220);
+        }
+      }
+
+      window.addEventListener('scroll', tick, { passive: true });
+      tick();
+    })();
+  </script>
+
+</body>
+</html>
