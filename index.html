@@ -34,44 +34,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Nav ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: var(--night);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 64px;
-      border-bottom: 1px solid #222;
-    }
-
-    .nav-logo {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: -0.3px;
-    }
-    .nav-logo span { color: var(--vine); }
-
-    .nav-cta {
-      background: var(--vine);
-      color: var(--white);
-      font-family: 'Manrope', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 10px 22px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-      letter-spacing: 0.3px;
-      transition: opacity 0.2s;
-    }
-    .nav-cta:hover { opacity: 0.85; }
-
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
@@ -85,7 +47,6 @@
       overflow: hidden;
     }
 
-    /* Subtle wave texture via SVG background */
     .hero::before {
       content: '';
       position: absolute;
@@ -533,14 +494,14 @@
       line-height: 1.65;
     }
 
-    /* ── Packages ── */
+    /* ── Packages / Builder ── */
     .packages-section {
       background: var(--white);
       padding: 96px 48px;
     }
 
     .packages-inner {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
@@ -549,133 +510,198 @@
       margin-bottom: 56px;
     }
 
-    .packages-grid {
+    /* Value props strip */
+    .value-props {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #E5E5E5;
     }
 
-    .package-card {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #E5E5E5;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .package-card:hover {
-      box-shadow: 0 12px 40px rgba(0,0,0,0.10);
-      transform: translateY(-3px);
-    }
-
-    .package-card.featured {
-      border-color: var(--vine);
-      box-shadow: 0 0 0 2px var(--vine);
-    }
-
-    .package-header {
-      padding: 32px 32px 24px;
-    }
-
-    .package-card:not(.featured) .package-header {
-      background: var(--paper);
-    }
-
-    .package-card.featured .package-header {
-      background: var(--night);
-    }
-
-    .package-badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-    }
-
-    .package-card:not(.featured) .package-badge {
-      background: rgba(0,165,79,0.12);
-      color: var(--vine);
-    }
-
-    .package-card.featured .package-badge {
-      background: var(--vine);
-      color: var(--white);
-    }
-
-    .package-name {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 8px;
-    }
-
-    .package-card:not(.featured) .package-name { color: var(--night); }
-    .package-card.featured .package-name { color: var(--white); }
-
-    .package-desc {
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .package-card:not(.featured) .package-desc { color: var(--smoke); }
-    .package-card.featured .package-desc { color: rgba(255,255,255,0.6); }
-
-    .package-features {
-      padding: 28px 32px 32px;
+    .value-prop {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      background: var(--white);
-    }
-
-    .package-feature {
-      display: flex;
       align-items: center;
+      text-align: center;
       gap: 12px;
-      font-size: 15px;
-      color: var(--night);
-      font-weight: 500;
     }
 
-    .package-feature-check {
-      width: 22px;
-      height: 22px;
+    .value-prop-icon {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
+      background: var(--dew);
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+    }
+    .value-prop-icon svg { width: 22px; height: 22px; }
+
+    .value-prop-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--night);
+      letter-spacing: -0.2px;
+      text-transform: uppercase;
+    }
+
+    .value-prop-desc {
+      font-size: 13px;
+      color: var(--smoke);
+      line-height: 1.55;
+      max-width: 240px;
+    }
+
+    /* Service cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      border: 1px solid #E5E5E5;
+      border-radius: 14px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--dew);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .service-icon svg { width: 22px; height: 22px; }
+
+    .service-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--night);
+      letter-spacing: -0.3px;
+    }
+
+    .service-tagline {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--vine);
+      font-style: italic;
+      margin-top: -8px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: var(--smoke);
+      line-height: 1.6;
+    }
+
+    .service-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .service-checklist li {
+      font-size: 12.5px;
+      color: var(--smoke);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .service-checklist li::before {
+      content: '✓';
+      color: var(--vine);
       font-size: 11px;
       font-weight: 700;
+      margin-top: 1px;
+      flex-shrink: 0;
     }
 
-    .package-card:not(.featured) .package-feature-check {
-      background: var(--dew);
-      color: var(--vine);
+    /* Builder CTA / how it works */
+    .builder-cta {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid #E5E5E5;
+      display: grid;
+      grid-template-columns: 0.9fr 1.4fr;
+      gap: 48px;
+      align-items: center;
     }
 
-    .package-card.featured .package-feature-check {
-      background: var(--vine);
-      color: var(--white);
+    .builder-cta-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--night);
+      margin-bottom: 8px;
     }
 
-    .package-feature-new {
-      font-size: 10px;
+    .builder-cta-sub {
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 1px;
+      color: var(--vine);
+      margin-bottom: 12px;
+    }
+
+    .builder-cta-desc {
+      font-size: 14px;
+      color: var(--smoke);
+      line-height: 1.6;
+    }
+
+    .builder-steps {
+      display: flex;
+      gap: 24px;
+    }
+
+    .builder-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .builder-step-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--vine);
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      background: var(--sky);
-      color: var(--blue);
-      padding: 2px 8px;
-      border-radius: 100px;
-      margin-left: auto;
+    }
+
+    .builder-step-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--night);
+    }
+
+    .builder-step-desc {
+      font-size: 12.5px;
+      color: var(--smoke);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
-      .packages-grid { grid-template-columns: 1fr; }
+      .value-props { grid-template-columns: 1fr; gap: 32px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .builder-cta { grid-template-columns: 1fr; }
+      .builder-steps { flex-direction: column; gap: 20px; }
     }
 
     /* ── Quote ── */
@@ -791,6 +817,13 @@
       color: var(--stone);
     }
 
+    .home-reveal-tagline {
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 600;
+      color: var(--white);
+      margin-top: 4px;
+    }
+
     .home-reveal-letters {
       display: flex;
       align-items: center;
@@ -841,7 +874,6 @@
       pointer-events: none;
     }
 
-    /* Per-letter colors when active */
     .hrl-letter[data-index="0"].hrl-active .hrl-char {
       color: var(--vine);
       -webkit-text-stroke: 0px;
@@ -891,7 +923,7 @@
       height: 6px;
       border-radius: 50%;
       background: rgba(255,255,255,0.12);
-      transition: background 0.4s, transform 0.4s, width 0.4s;
+      transition: background 0.4s, transform 0.4s;
     }
 
     .home-reveal-dot.dot-0.dot-active { background: var(--vine); transform: scale(1.5); }
@@ -906,7 +938,6 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 0 24px; }
       section, .intro, .diff-inner, .pm-inner { padding: 64px 24px; }
       .pillars-section, .diff-section, .pm-section, .quote-section, .cta-section, footer { padding-left: 24px; padding-right: 24px; }
       .pillars-grid { grid-template-columns: 1fr; }
@@ -922,11 +953,10 @@
 </head>
 <body>
 
-
   <!-- ── HOME Scroll Reveal ── -->
   <section class="home-reveal-section" id="home-meaning">
     <div class="home-reveal-sticky">
-      <div class="home-reveal-eyebrow">what HOME stands for</div>
+      <div class="home-reveal-eyebrow">Make your residents feel at</div>
       <div class="home-reveal-letters">
         <div class="hrl-letter" data-index="0">
           <span class="hrl-char">H</span>
@@ -945,7 +975,8 @@
           <span class="hrl-word">Experience</span>
         </div>
       </div>
-      <p class="home-reveal-desc" id="home-reveal-desc">Scroll to discover what makes HOME different.</p>
+      <div class="home-reveal-tagline">with our Resident Experience Package</div>
+      <p class="home-reveal-desc" id="home-reveal-desc">Scroll to discover how HOME adapts to every resident.</p>
       <div class="home-reveal-progress">
         <div class="home-reveal-dot dot-0" data-dot="0"></div>
         <div class="home-reveal-dot dot-1" data-dot="1"></div>
@@ -958,15 +989,9 @@
   <!-- ── Hero ── -->
   <section class="hero" id="top">
     <div class="hero-inner">
-      <div class="hero-eyebrow">Make your residents feel at</div>
       <div class="hero-wordmark">H<span style="color: var(--white);">O</span>ME</div>
       <div class="hero-acronym">Hospitality &nbsp;·&nbsp; Ongoing Care &nbsp;·&nbsp; Member Benefits &nbsp;·&nbsp; Experience</div>
-      <p class="hero-tagline">with our Resident Experience Package</p>
-      <p class="hero-sub">HOME is Rentvine's native resident experience package. Built directly into your platform no third-party vendors, and no extra logins.</p>
-      <div class="hero-actions">
-        <a href="#cta" class="btn-primary">schedule a demo</a>
-        <a href="#pillars" class="btn-secondary">see how it works</a>
-      </div>
+      <p class="hero-sub">HOME is Rentvine's native resident experience package. Fully customizable. Turn features on or off for every resident, every property, every lease — no third-party vendors, no extra logins required.</p>
     </div>
     <div class="hero-scroll">
       <div class="hero-scroll-line"></div>
@@ -987,10 +1012,10 @@
     <div>
       <div class="section-eyebrow">what is HOME</div>
       <h2 class="section-title">Built in.<br>Not bolted on.</h2>
-      <p class="section-body">Other resident benefit packages are third-party add-ons: separate logins, disconnected data, and another vendor to manage. HOME is built directly into Rentvine. That means every touchpoint flows through one platform. No gaps. No middlemen. No surprises.</p>
+      <p class="section-body">Other resident benefit packages are third-party add-ons: separate logins, disconnected data, and another vendor to manage. HOME is built directly into Rentvine, and built around each resident. Turn features on or off by property, lease, or resident preference. No gaps. No middlemen. No one-size-fits-all.</p>
     </div>
     <div>
-      <p class="intro-quote">"Your software should already know what to do. <em>HOME does.</em>"</p>
+      <p class="intro-quote">"Every resident is different. <em>Their HOME should be too.</em>"</p>
     </div>
   </div>
 
@@ -998,13 +1023,13 @@
   <section class="pillars-section" id="pillars">
     <div class="pillars-header">
       <div class="section-eyebrow">the four pillars</div>
-      <h2 class="section-title" style="color: var(--white);">Everything a resident needs.<br>Already in Rentvine.</h2>
-      <p class="section-body" style="color: var(--stone); margin: 0 auto;">HOME isn't a checklist. It's a commitment to every resident, at every stage of their journey.</p>
+      <h2 class="section-title" style="color: var(--white);">Everything a resident needs.<br>Customized to fit them.</h2>
+      <p class="section-body" style="color: var(--stone); margin: 0 auto;">HOME isn't one-size-fits-all. It's a commitment you can tailor to every resident, at every stage of their journey.</p>
     </div>
 
     <div class="pillars-grid">
 
-      <!-- Pillar 01Hospitality -->
+      <!-- Pillar 01 - Hospitality -->
       <div class="pillar-card pillar-card-01">
         <div class="pillar-number">Pillar 01</div>
         <div class="pillar-icon">
@@ -1024,7 +1049,7 @@
         </ul>
       </div>
 
-      <!-- Pillar 02Ongoing Care -->
+      <!-- Pillar 02 - Ongoing Care -->
       <div class="pillar-card pillar-card-02">
         <div class="pillar-number">Pillar 02</div>
         <div class="pillar-icon">
@@ -1043,7 +1068,7 @@
         </ul>
       </div>
 
-      <!-- Pillar 03Member Benefits -->
+      <!-- Pillar 03 - Member Benefits -->
       <div class="pillar-card pillar-card-03">
         <div class="pillar-number">Pillar 03</div>
         <div class="pillar-icon">
@@ -1063,7 +1088,7 @@
         </ul>
       </div>
 
-      <!-- Pillar 04Experience -->
+      <!-- Pillar 04 - Experience -->
       <div class="pillar-card pillar-card-04">
         <div class="pillar-number">Pillar 04</div>
         <div class="pillar-icon">
@@ -1085,100 +1110,190 @@
     </div>
   </section>
 
-  <!-- ── Quote ── -->
-  <!-- ── Packages ── -->
+  <!-- ── Packages / Builder ── -->
   <section class="packages-section" id="packages">
     <div class="packages-inner">
       <div class="packages-header">
-        <div class="section-eyebrow">choose your package</div>
-        <h2 class="section-title">Everything residents need.<br>Two ways to get there.</h2>
-        <p class="section-body" style="margin: 0 auto; text-align: center;">Both packages are built natively into Rentvine, no third-party vendors, no extra logins.</p>
+        <div class="section-eyebrow">build it your way</div>
+        <h2 class="section-title">Premium services. Happier residents.<br>Stronger performance.</h2>
+        <p class="section-body" style="margin: 0 auto; text-align: center;">HOME delivers high-value services your residents love, while creating new opportunity, reducing operational burden, and driving higher satisfaction and retention for your portfolio.</p>
       </div>
 
-      <div class="packages-grid">
+      <!-- Value props -->
+      <div class="value-props">
+        <div class="value-prop">
+          <div class="value-prop-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v10M9 9.5c0-1.5 1.3-2.5 3-2.5s3 1 3 2.3c0 2.7-6 1.6-6 4.3 0 1.4 1.3 2.4 3 2.4s3-1 3-2.5"/>
+            </svg>
+          </div>
+          <div class="value-prop-title">New revenue stream</div>
+          <p class="value-prop-desc">Generate recurring value for your portfolio.</p>
+        </div>
+        <div class="value-prop">
+          <div class="value-prop-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 21c0-3.3 3.6-6 8-6s8 2.7 8 6"/>
+            </svg>
+          </div>
+          <div class="value-prop-title">Happier, more loyal residents</div>
+          <p class="value-prop-desc">Valuable everyday services that residents use and appreciate.</p>
+        </div>
+        <div class="value-prop">
+          <div class="value-prop-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18"/>
+              <path d="M7 15l4-5 3 3 5-7"/>
+            </svg>
+          </div>
+          <div class="value-prop-title">Less work, better results</div>
+          <p class="value-prop-desc">Save time, reduce resident requests, and improve occupancy outcomes.</p>
+        </div>
+      </div>
 
-        <!-- Package 1HOME -->
-        <div class="package-card">
-          <div class="package-header">
-            <div class="package-badge">HOME</div>
-            <div class="package-name">HOME</div>
-            <p class="package-desc">The essentials for a resident experience your tenants will notice from day one.</p>
+      <!-- Services -->
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="3" width="16" height="18" rx="1"/>
+              <path d="M8 8h8M8 12h8M8 16h5"/>
+            </svg>
           </div>
-          <div class="package-features">
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Credit Reporting
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Utility Connection
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Resident Rewards
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              ID Theft Protection
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Pest Control
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Filters
-            </div>
-          </div>
+          <div class="service-name">Filter Delivery</div>
+          <div class="service-tagline">Proactive maintenance. Healthier homes.</div>
+          <p class="service-desc">We handle the scheduling and delivery of HVAC filters, helping residents maintain better air quality and equipment efficiency.</p>
+          <ul class="service-checklist">
+            <li>Automatic filter deliveries</li>
+            <li>Better indoor air quality</li>
+            <li>Improved HVAC efficiency</li>
+            <li>Fewer resident requests</li>
+          </ul>
         </div>
 
-        <!-- Package 2HOME+ -->
-        <div class="package-card featured">
-          <div class="package-header">
-            <div class="package-badge">Most Complete</div>
-            <div class="package-name">HOME+</div>
-            <p class="package-desc">Everything in HOME, plus Group Internet, the full resident experience package.</p>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="13" r="5"/>
+              <path d="M12 8V5M9 6l-1.5-1.5M15 6l1.5-1.5M7 13H3M21 13h-4M8 17l-2 2M16 17l2 2"/>
+            </svg>
           </div>
-          <div class="package-features">
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Credit Reporting
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Utility Connection
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Resident Rewards
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              ID Theft Protection
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Pest Control
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Group Internet
-              <span class="package-feature-new">+ add-on</span>
-            </div>
-            <div class="package-feature">
-              <div class="package-feature-check">✓</div>
-              Filters
-            </div>
+          <div class="service-name">Pest Control</div>
+          <div class="service-tagline">On-demand service. Resident peace of mind.</div>
+          <p class="service-desc">Residents can request pest control service when they need it. We coordinate with trusted professionals to resolve issues quickly.</p>
+          <ul class="service-checklist">
+            <li>On-demand service</li>
+            <li>Professional treatment</li>
+            <li>Fast response</li>
+            <li>Improved resident satisfaction</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/>
+              <path d="M9.5 12l1.8 1.8L15 10"/>
+            </svg>
           </div>
+          <div class="service-name">ID Protection</div>
+          <div class="service-tagline">Help residents protect what matters most.</div>
+          <p class="service-desc">Identity theft monitoring and alerts help residents stay informed and protected from potential fraud.</p>
+          <ul class="service-checklist">
+            <li>Identity monitoring</li>
+            <li>Fraud alerts</li>
+            <li>Personal information protection</li>
+            <li>Added peace of mind</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <div class="service-name">Positive Credit Reporting</div>
+          <div class="service-tagline">Support financial wellness. Build stronger residents.</div>
+          <p class="service-desc">We report on-time rent payments to major credit bureaus, helping residents build credit while driving long-term retention for your communities.</p>
+          <ul class="service-checklist">
+            <li>Reports to major credit bureaus</li>
+            <li>Build credit through rent payments</li>
+            <li>Improve financial opportunities</li>
+            <li>No additional effort required</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <div class="service-name">Resident Rewards</div>
+          <div class="service-tagline">Reward good behavior. Drive engagement.</div>
+          <p class="service-desc">Residents earn points for on-time payments and engagement, which they can redeem for gift cards, local discounts, travel, and more.</p>
+          <ul class="service-checklist">
+            <li>Encourages on-time payments</li>
+            <li>Rewards for engagement</li>
+            <li>Gift cards & exclusive offers</li>
+            <li>Local & national discounts</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>
+            </svg>
+          </div>
+          <div class="service-name">Utility Connection</div>
+          <div class="service-tagline">Simplify move-ins. Reduce vacancies.</div>
+          <p class="service-desc">We connect residents with trusted utility providers, making move-ins seamless and reducing the time units sit vacant.</p>
+          <ul class="service-checklist">
+            <li>Electricity, water, gas, internet & more</li>
+            <li>Trusted provider network</li>
+            <li>Streamlined move-in experience</li>
+            <li>Less time on market</li>
+          </ul>
         </div>
 
       </div>
+
+      <!-- How it works -->
+      <div class="builder-cta">
+        <div>
+          <div class="builder-cta-title">Create the package that works for you.</div>
+          <div class="builder-cta-sub">More control. More flexibility. More value.</div>
+          <p class="builder-cta-desc">Choose the services you want, build your package, and offer it as one seamless experience. You control the mix, we power the delivery.</p>
+        </div>
+        <div class="builder-steps">
+          <div class="builder-step">
+            <div class="builder-step-num">1. Choose</div>
+            <p class="builder-step-desc">Select the services that fit your residents and your goals.</p>
+          </div>
+          <div class="builder-step">
+            <div class="builder-step-num">2. Build your package</div>
+            <p class="builder-step-desc">Bundle your selected services into one seamless offering.</p>
+          </div>
+          <div class="builder-step">
+            <div class="builder-step-num">3. Deliver</div>
+            <p class="builder-step-desc">We power the experience, so your residents feel it from day one.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <div class="quote-section">
-    <p class="quote-text">"No third-party vendors. No extra logins. No patchwork."</p>
-    <p class="quote-attribution">One platform. Your residents feel the difference.</p>
+    <p class="quote-text">"No two residents. No two HOME packages."</p>
+    <p class="quote-attribution">Customized to fit each one. Built right into Rentvine.</p>
   </div>
 
   <!-- ── Differentiator ── -->
@@ -1186,13 +1301,17 @@
     <div class="diff-inner">
       <div>
         <div class="section-eyebrow">why HOME is different</div>
-        <h2 class="section-title">No third parties.<br>No extra logins.<br>No patchwork.</h2>
-        <p class="section-body">HOME works because Rentvine already knows your residents: their lease, their maintenance history, their preferences. That's something a bolted-on package can never do.</p>
+        <h2 class="section-title">No third parties.<br>No extra logins.</h2>
+        <p class="section-body">HOME works because Rentvine already knows your residents: their lease, their maintenance history, their preferences. That's how HOME adapts to each one, something a bolted-on package can never do.</p>
       </div>
       <div class="diff-comparison">
         <div class="diff-col-labels">
           <span class="diff-col-label before">Without HOME</span>
           <span class="diff-col-label after">With HOME</span>
+        </div>
+        <div class="diff-row">
+          <div class="diff-cell diff-cell-before">One rigid bundle for every resident</div>
+          <div class="diff-cell diff-cell-after">Customized package, resident by resident</div>
         </div>
         <div class="diff-row">
           <div class="diff-cell diff-cell-before">PDF welcome packet and a phone number</div>
@@ -1219,7 +1338,7 @@
     <div class="pm-inner">
       <div class="section-eyebrow">for property managers</div>
       <h2 class="section-title">A package you're proud<br>to put your name on.</h2>
-      <p class="section-body">HOME isn't just better for residents. It's a differentiator you can pitch to prospective owner-clients and a tool that makes your team's day easier.</p>
+      <p class="section-body">HOME isn't just better for residents, it's built to fit each one. Customize it by property or owner agreement, pitch it to prospective owner-clients, and give your team a tool that makes their day easier.</p>
       <div class="pm-cards">
         <div class="pm-card">
           <div class="pm-card-icon">
@@ -1238,7 +1357,7 @@
             </svg>
           </div>
           <div class="pm-card-title">A pitch-worthy differentiator</div>
-          <p class="pm-card-body">HOME is something tangible to offer prospective owner-clients. It signals professionalism, resident-first values, and a platform built for the modern PMC.</p>
+          <p class="pm-card-body">HOME is something tangible to offer prospective owner-clients, tailored to their portfolio. It signals professionalism, resident-first values, and a platform built for the modern PMC.</p>
         </div>
         <div class="pm-card">
           <div class="pm-card-icon">
@@ -1260,7 +1379,7 @@
   <section class="cta-section" id="cta">
     <div class="section-eyebrow" style="color: var(--vine); text-align: center;">give your residents HOME</div>
     <h2 class="section-title">Ready to make your residents<br>feel at home?</h2>
-    <p class="section-body">HOME is built into Rentvine. No integration work, no new vendor relationships, just a better experience for every resident you manage, starting on day one.</p>
+    <p class="section-body">HOME is built into Rentvine, and built around each resident. No integration work, no new vendor relationships, just a package you can customize for every resident you manage, starting on day one.</p>
     <div class="cta-actions">
       <a href="#" class="btn-primary">schedule a demo</a>
       <a href="#" class="btn-secondary">learn more</a>
@@ -1277,7 +1396,6 @@
     </div>
     <div class="footer-copy">© 2026 Rentvine. All rights reserved.</div>
   </footer>
-
 
   <script>
     (function () {
@@ -1303,7 +1421,6 @@
         var scrolled      = window.scrollY - sectionTop;
         var progress      = Math.max(0, Math.min(1, scrolled / sectionHeight));
 
-        // Activate letters & dots progressively (each at 0%, 25%, 50%, 75%)
         letters.forEach(function (letter, i) {
           if (progress > i * 0.25) {
             letter.classList.add('hrl-active');
@@ -1320,7 +1437,6 @@
           }
         });
 
-        // Update description text when active letter changes
         var activeIndex = Math.min(Math.floor(progress * 4), 3);
         if (progress > 0 && activeIndex !== currentActive) {
           currentActive = activeIndex;
