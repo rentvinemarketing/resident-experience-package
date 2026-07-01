@@ -176,6 +176,15 @@
       flex-wrap: wrap;
     }
 
+    .stat-strip-bleed {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 32px 0;
+      padding: 20px 48px;
+    }
+
     .stat-item {
       display: flex;
       flex-direction: column;
@@ -494,22 +503,6 @@
       line-height: 1.65;
     }
 
-    /* ── Packages / Builder ── */
-    .packages-section {
-      background: var(--white);
-      padding: 96px 48px;
-    }
-
-    .packages-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .packages-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
     /* Value props strip */
     .value-props {
       display: grid;
@@ -552,6 +545,22 @@
       color: var(--smoke);
       line-height: 1.55;
       max-width: 240px;
+    }
+
+    /* ── Packages / Builder ── */
+    .packages-section {
+      background: var(--white);
+      padding: 96px 48px;
+    }
+
+    .packages-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .packages-header {
+      text-align: center;
+      margin-bottom: 56px;
     }
 
     /* Service cards */
@@ -990,7 +999,11 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <div class="hero-wordmark">H<span style="color: var(--white);">O</span>ME</div>
-      <div class="hero-acronym">Hospitality &nbsp;·&nbsp; Ongoing Care &nbsp;·&nbsp; Member Benefits &nbsp;·&nbsp; Experience</div>
+      <div class="stat-strip stat-strip-bleed">
+        <div class="stat-item" style="border-right: none; padding: 0;">
+          <div class="stat-label" style="color: var(--white); font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;">Hospitality &nbsp;·&nbsp; Ongoing Care &nbsp;·&nbsp; Member Benefits &nbsp;·&nbsp; Experience</div>
+        </div>
+      </div>
       <p class="hero-sub">HOME is Rentvine's native resident experience package. Fully customizable. Turn features on or off for every resident, every property, every lease — no third-party vendors, no extra logins required.</p>
     </div>
     <div class="hero-scroll">
@@ -998,14 +1011,6 @@
       scroll
     </div>
   </section>
-
-  <!-- ── Stat Strip ── -->
-  <div class="stat-strip">
-    <div class="stat-item" style="border-right: none;">
-      <div class="stat-number">Day 1</div>
-      <div class="stat-label">residents feel at home from move-in.</div>
-    </div>
-  </div>
 
   <!-- ── Intro ── -->
   <div class="intro">
