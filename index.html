@@ -374,6 +374,197 @@
     .pillar-card-03 .pillar-bullets li::before { color: var(--leaf); }
     .pillar-card-04 .pillar-bullets li::before { color: var(--grey); }
 
+    /* ── Residents Section ── */
+    .resident-section {
+      background: var(--paper);
+      padding: 96px 48px;
+    }
+
+    .resident-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .resident-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+
+    .resident-block-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--vine);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .resident-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 72px;
+    }
+
+    .timeline-step {
+      padding-top: 20px;
+      border-top: 3px solid var(--vine);
+    }
+
+    .timeline-step-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--vine);
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-step-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--night);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .timeline-step-desc {
+      font-size: 13px;
+      color: var(--smoke);
+      line-height: 1.55;
+    }
+
+    .resident-columns {
+      display: grid;
+      grid-template-columns: 0.9fr 1.3fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .resident-rewards-card {
+      background: var(--night);
+      border-radius: 20px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .resident-rewards-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 30% 20%, rgba(0,165,79,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .resident-rewards-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(0,165,79,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .resident-rewards-icon svg { width: 24px; height: 24px; }
+
+    .resident-rewards-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .resident-rewards-desc {
+      font-size: 14px;
+      color: var(--stone);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .resident-rewards-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+      position: relative;
+      z-index: 1;
+    }
+    .resident-rewards-list li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .resident-rewards-list li::before {
+      content: '✓';
+      color: var(--vine);
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .resident-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .resident-benefit {
+      background: var(--white);
+      border: 1px solid #E5E5E5;
+      border-radius: 14px;
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .resident-benefit-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--dew);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .resident-benefit-icon svg { width: 19px; height: 19px; }
+
+    .resident-benefit-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--night);
+    }
+
+    .resident-benefit-desc {
+      font-size: 12.5px;
+      color: var(--smoke);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      .resident-timeline { grid-template-columns: repeat(2, 1fr); }
+      .resident-columns { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .resident-timeline { grid-template-columns: 1fr; }
+      .resident-benefits-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── Differentiator ── */
     .diff-section {
       background: var(--paper);
@@ -969,19 +1160,15 @@
       <div class="home-reveal-letters">
         <div class="hrl-letter" data-index="0">
           <span class="hrl-char">H</span>
-          <span class="hrl-word">Hospitality</span>
         </div>
         <div class="hrl-letter" data-index="1">
           <span class="hrl-char">O</span>
-          <span class="hrl-word">Ongoing<br>Care</span>
         </div>
         <div class="hrl-letter" data-index="2">
           <span class="hrl-char">M</span>
-          <span class="hrl-word">Member<br>Benefits</span>
         </div>
         <div class="hrl-letter" data-index="3">
           <span class="hrl-char">E</span>
-          <span class="hrl-word">Experience</span>
         </div>
       </div>
       <div class="home-reveal-tagline">with our Resident Experience Package</div>
@@ -991,6 +1178,10 @@
         <div class="home-reveal-dot dot-1" data-dot="1"></div>
         <div class="home-reveal-dot dot-2" data-dot="2"></div>
         <div class="home-reveal-dot dot-3" data-dot="3"></div>
+      </div>
+      <div class="hero-scroll">
+        <div class="hero-scroll-line"></div>
+        scroll
       </div>
     </div>
   </section>
@@ -1004,7 +1195,7 @@
           <div class="stat-label" style="color: var(--white); font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;">Hospitality &nbsp;·&nbsp; Ongoing Care &nbsp;·&nbsp; Member Benefits &nbsp;·&nbsp; Experience</div>
         </div>
       </div>
-      <p class="hero-sub">HOME is Rentvine's native resident experience package. Fully customizable. Turn features on or off for every resident, every property, every lease — no third-party vendors, no extra logins required.</p>
+      <p class="hero-sub">HOME is Rentvine's native resident experience package. Fully customizable. Turn features on or off for every resident, every property, every lease, no third-party vendors, no extra logins required.</p>
     </div>
     <div class="hero-scroll">
       <div class="hero-scroll-line"></div>
@@ -1112,6 +1303,125 @@
         </ul>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ── For Residents ── -->
+  <section class="resident-section" id="residents">
+    <div class="resident-inner">
+      <div class="resident-header">
+        <div class="section-eyebrow">for residents</div>
+        <h2 class="section-title">Everything you need,<br>already built in.</h2>
+        <p class="section-body" style="margin: 0 auto; text-align: center;">From the day you sign your lease to the day you renew, HOME guides you through move-in, rewards you for being a great resident, and gives you perks that make renting easier.</p>
+      </div>
+
+      <!-- Onboarding timeline -->
+      <div class="resident-block-label">your onboarding journey</div>
+      <div class="resident-timeline">
+        <div class="timeline-step">
+          <div class="timeline-step-num">01 · Sign</div>
+          <div class="timeline-step-title">Sign your lease</div>
+          <p class="timeline-step-desc">Get a welcome message from your property manager and instant access to your resident portal.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step-num">02 · Get guided</div>
+          <div class="timeline-step-title">Follow your move-in checklist</div>
+          <p class="timeline-step-desc">A step-by-step digital checklist walks you through everything, so nothing gets missed.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step-num">03 · Settle in</div>
+          <div class="timeline-step-title">Everything, in one place</div>
+          <p class="timeline-step-desc">Your lease, documents, contacts, and move-in photos are all in your portal, whenever you need them.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-step-num">04 · Live in HOME</div>
+          <div class="timeline-step-title">Get support, earn rewards</div>
+          <p class="timeline-step-desc">Submit and track work orders in real time, and start earning points from day one.</p>
+        </div>
+      </div>
+
+      <!-- Rewards + Benefits -->
+      <div class="resident-columns">
+        <div class="resident-rewards-card">
+          <div class="resident-rewards-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <div class="resident-block-label" style="text-align: left; margin-bottom: 0;">resident rewards</div>
+          <h3 class="resident-rewards-title">Get rewarded for being a great resident.</h3>
+          <p class="resident-rewards-desc">Earn points every time you pay rent on time or engage with your portal. Redeem them for the things you actually want.</p>
+          <ul class="resident-rewards-list">
+            <li>Points for on-time rent payments</li>
+            <li>Points for portal engagement</li>
+            <li>Gift cards & exclusive offers</li>
+            <li>Local & national discounts</li>
+            <li>Travel redemptions</li>
+          </ul>
+        </div>
+
+        <div class="resident-benefits-grid">
+          <div class="resident-benefit">
+            <div class="resident-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/>
+                <path d="M9.5 12l1.8 1.8L15 10"/>
+              </svg>
+            </div>
+            <div class="resident-benefit-title">Renter's Insurance</div>
+            <p class="resident-benefit-desc">Pre-filled and ready, so you're covered from move-in day.</p>
+          </div>
+          <div class="resident-benefit">
+            <div class="resident-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>
+              </svg>
+            </div>
+            <div class="resident-benefit-title">Utility Concierge</div>
+            <p class="resident-benefit-desc">Get connected to trusted providers, plus move-in discounts.</p>
+          </div>
+          <div class="resident-benefit">
+            <div class="resident-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="13" r="5"/>
+                <path d="M12 8V5M9 6l-1.5-1.5M15 6l1.5-1.5M7 13H3M21 13h-4M8 17l-2 2M16 17l2 2"/>
+              </svg>
+            </div>
+            <div class="resident-benefit-title">Pest Control</div>
+            <p class="resident-benefit-desc">Request service on-demand and get fast, professional treatment.</p>
+          </div>
+          <div class="resident-benefit">
+            <div class="resident-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <div class="resident-benefit-title">Positive Credit Reporting</div>
+            <p class="resident-benefit-desc">Build your credit just by paying rent on time. No extra effort.</p>
+          </div>
+          <div class="resident-benefit">
+            <div class="resident-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+              </svg>
+            </div>
+            <div class="resident-benefit-title">ID Protection</div>
+            <p class="resident-benefit-desc">Identity monitoring and fraud alerts, for extra peace of mind.</p>
+          </div>
+          <div class="resident-benefit">
+            <div class="resident-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="3" width="16" height="18" rx="1"/>
+                <path d="M8 8h8M8 12h8M8 16h5"/>
+              </svg>
+            </div>
+            <div class="resident-benefit-title">Filter Delivery</div>
+            <p class="resident-benefit-desc">HVAC filters delivered on schedule for cleaner air, automatically.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1339,7 +1649,7 @@
   </section>
 
   <!-- ── For Property Managers ── -->
-  <section class="pm-section">
+  <section class="pm-section" id="for-pms">
     <div class="pm-inner">
       <div class="section-eyebrow">for property managers</div>
       <h2 class="section-title">A package you're proud<br>to put your name on.</h2>
@@ -1380,6 +1690,47 @@
     </div>
   </section>
 
+  <!-- ── For Owners & Investors ── -->
+  <section class="pm-section" id="owners" style="background: var(--paper);">
+    <div class="pm-inner">
+      <div class="section-eyebrow">for owners &amp; investors</div>
+      <h2 class="section-title">An investment that<br>protects itself.</h2>
+      <p class="section-body">HOME doesn't just make residents happier, it makes your portfolio stronger. Better retention, better-kept properties, and zero added cost or vendors for you to manage.</p>
+      <div class="pm-cards">
+        <div class="pm-card">
+          <div class="pm-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18"/>
+              <path d="M7 15l4-5 3 3 5-7"/>
+            </svg>
+          </div>
+          <div class="pm-card-title">Fewer vacancies, steadier income</div>
+          <p class="pm-card-body">Residents who feel supported renew more often. Fewer turns mean fewer vacancy days and more predictable cash flow across your portfolio.</p>
+        </div>
+        <div class="pm-card">
+          <div class="pm-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/>
+              <path d="M9.5 12l1.8 1.8L15 10"/>
+            </svg>
+          </div>
+          <div class="pm-card-title">A better-protected asset</div>
+          <p class="pm-card-body">Proactive maintenance and real-time work order tracking catch small issues before they become expensive repairs, protecting the long-term value of your property.</p>
+        </div>
+        <div class="pm-card">
+          <div class="pm-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00A54F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+              <path d="M9 21V12h6v9"/>
+            </svg>
+          </div>
+          <div class="pm-card-title">No new vendor to manage</div>
+          <p class="pm-card-body">HOME is delivered by the property manager you already trust, built directly into Rentvine. No extra logins, no new vendor relationship, no added oversight on your end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CTA ── -->
   <section class="cta-section" id="cta">
     <div class="section-eyebrow" style="color: var(--vine); text-align: center;">give your residents HOME</div>
@@ -1410,10 +1761,10 @@
       var desc    = document.getElementById('home-reveal-desc');
 
       var descriptions = [
-        'A warm, guided experience from the moment a lease is signed.',
-        'Real support that residents can feel from move-in to move-out.',
-        'Perks and resources that make a rental work for the resident.',
-        'The feeling that makes residents renew and tell their friends about you.'
+        'Hospitality: A warm, guided experience from the moment a lease is signed.',
+        'Ongoing Care: Real support that residents can feel from move-in to move-out.',
+        'Member Benefits: Perks and resources that make a rental work for the resident.',
+        'Experience: The feeling that makes residents renew and tell their friends about you.'
       ];
 
       var currentActive = -1;
